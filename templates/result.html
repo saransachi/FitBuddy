@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FitBuddy - Your Fitness Plan</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="container">
+
+            <h1 class="logo">
+                FitBuddy
+            </h1>
+
+            <p class="tagline">
+                Your AI Fitness Plan
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="card">
+
+            <h2>
+                Hello, {{ user.name }}! 👋
+            </h2>
+
+            <div class="user-info">
+
+                <p>
+                    <strong>User ID:</strong>
+                    {{ user.user_id }}
+                </p>
+
+                <p>
+                    <strong>Age:</strong>
+                    {{ user.age }}
+                </p>
+
+                <p>
+                    <strong>Weight:</strong>
+                    {{ user.weight }} kg
+                </p>
+
+                <p>
+                    <strong>Goal:</strong>
+                    {{ user.goal }}
+                </p>
+
+                <p>
+                    <strong>Intensity:</strong>
+                    {{ user.intensity }}
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>
+                📅 Your 7-Day Fitness Plan
+            </h2>
+
+            <div class="plan">
+
+                <pre>{{ plan }}</pre>
+
+            </div>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>
+                🥗 Nutrition & Recovery Tip
+            </h2>
+
+            <p>
+                {{ nutrition_tip }}
+            </p>
+
+        </section>
+
+
+        {% if feedback_submitted %}
+
+        <section class="success-message">
+
+            <p>
+                ✅ Your feedback has been used to update
+                your fitness plan.
+            </p>
+
+        </section>
+
+        {% endif %}
+
+
+        <section class="card">
+
+            <h2>
+                💬 Give Feedback
+            </h2>
+
+            <p>
+                Tell FitBuddy what you would like to change
+                in your plan.
+            </p>
+
+            <form
+                action="/submit-feedback"
+                method="post"
+            >
+
+                <input
+                    type="hidden"
+                    name="user_id"
+                    value="{{ user_id }}"
+                >
+
+                <div class="form-group">
+
+                    <label for="feedback">
+                        Your Feedback
+                    </label>
+
+                    <textarea
+                        id="feedback"
+                        name="feedback"
+                        rows="6"
+                        placeholder="Example: I would like easier exercises..."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                >
+                    Update My Plan
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="card safety-card">
+
+            <h3>
+                ⚠️ Safety Note
+            </h3>
+
+            <p>
+                Start gradually, use proper technique,
+                take rest when needed, and stop an
+                exercise if it causes pain or unusual
+                symptoms.
+            </p>
+
+        </section>
+
+
+        <div class="back-button">
+
+            <a
+                href="/"
+                class="btn-secondary"
+            >
+                ← Create Another Plan
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 FitBuddy - AI Fitness Plan Generator
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+/* =========================================
+   FitBuddy - Main Stylesheet
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   Container
+   ========================================= */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   Navigation / Header
+   ========================================= */
+
+.navbar {
+    background: #1f6feb;
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.tagline {
+    margin-top: 3px;
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   Hero Section
+   ========================================= */
+
+.hero {
+    text-align: center;
+    margin: 40px 0;
+}
+
+
+.hero h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+.hero p {
+    color: #666;
+    font-size: 17px;
+}
+
+
+/* =========================================
+   Cards
+   ========================================= */
+
+.card {
+    background: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #1f6feb;
+}
+
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   Form
+   ========================================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #1f6feb;
+    box-shadow: 0 0 0 2px rgba(31, 111, 235, 0.1);
+}
+
+
+textarea {
+    resize: vertical;
+}
+
+
+/* =========================================
+   Primary Button
+   ========================================= */
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 7px;
+    background: #1f6feb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.btn-primary:hover {
+    background: #1558b0;
+}
+
+
+/* =========================================
+   Secondary Button
+   ========================================= */
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+
+.btn-secondary:hover {
+    background: #333;
+}
+
+
+.back-button {
+    margin: 25px 0 40px;
+    text-align: center;
+}
+
+
+/* =========================================
+   Features
+   ========================================= */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 30px 0 50px;
+}
+
+
+.feature-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+
+.feature-card h3 {
+    margin-bottom: 10px;
+}
+
+
+.feature-card p {
+    color: #666;
+}
+
+
+/* =========================================
+   User Information
+   ========================================= */
+
+.user-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+
+.user-info p {
+    background: #f4f7fb;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+
+/* =========================================
+   Workout Plan
+   ========================================= */
+
+.plan {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+
+.plan pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   Success Message
+   ========================================= */
+
+.success-message {
+    background: #dff6e4;
+    color: #176b2c;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #b7e4c2;
+}
+
+
+/* =========================================
+   Safety Card
+   ========================================= */
+
+.safety-card {
+    background: #fff8e1;
+    border-left: 5px solid #f0ad4e;
+}
+
+
+.safety-card h3 {
+    color: #8a5a00;
+}
+
+
+.safety-card p {
+    color: #5f4b1f;
+}
+
+
+/* =========================================
+   Error Message
+   ========================================= */
+
+.error-message {
+    margin-top: 15px;
+    color: #b42318;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   Admin Table
+   ========================================= */
+
+.table-card {
+    padding: 20px;
+}
+
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+th {
+    background: #1f6feb;
+    color: white;
+}
+
+
+tr:hover {
+    background: #f5f7fa;
+}
+
+
+/* =========================================
+   Delete Button
+   ========================================= */
+
+.btn-danger {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background: #dc3545;
+    color: white;
+    cursor: pointer;
+}
+
+
+.btn-danger:hover {
+    background: #b02a37;
+}
+
+
+/* =========================================
+   Footer
+   ========================================= */
+
+footer {
+    background: #222;
+    color: #ddd;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+
+footer p {
+    font-size: 14px;
+}
+
+
+/* =========================================
+   Responsive Design
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 94%;
+    }
+
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+
+    .user-info {
+        grid-template-columns: 1fr;
+    }
+
+
+    .card {
+        padding: 20px;
+    }
+
+
+    .logo {
+        font-size: 26px;
+    }
+
+}

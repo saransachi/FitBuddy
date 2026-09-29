@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FitBuddy - Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="container">
+
+            <h1 class="logo">
+                FitBuddy
+            </h1>
+
+            <p class="tagline">
+                Admin Dashboard
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        {% if error %}
+
+        <section class="card">
+
+            <h2>
+                🔐 Admin Access
+            </h2>
+
+            <p>
+                Enter the admin key to view all users.
+            </p>
+
+            <form
+                action="/view-all-users"
+                method="get"
+            >
+
+                <div class="form-group">
+
+                    <label for="admin_key">
+                        Admin Key
+                    </label>
+
+                    <input
+                        type="password"
+                        id="admin_key"
+                        name="admin_key"
+                        placeholder="Enter admin key"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                >
+                    View Users
+                </button>
+
+            </form>
+
+            <p class="error-message">
+                {{ error }}
+            </p>
+
+        </section>
+
+        {% else %}
+
+        <section class="card">
+
+            <h2>
+                👥 All Users
+            </h2>
+
+            <p>
+                Total users: {{ users|length }}
+            </p>
+
+        </section>
+
+
+        {% if users %}
+
+        <section class="card table-card">
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                User ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Age
+                            </th>
+
+                            <th>
+                                Weight
+                            </th>
+
+                            <th>
+                                Goal
+                            </th>
+
+                            <th>
+                                Intensity
+                            </th>
+
+                            <th>
+                                Created
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for user in users %}
+
+                        <tr>
+
+                            <td>
+                                {{ user.user_id }}
+                            </td>
+
+                            <td>
+                                {{ user.name }}
+                            </td>
+
+                            <td>
+                                {{ user.age }}
+                            </td>
+
+                            <td>
+                                {{ user.weight }} kg
+                            </td>
+
+                            <td>
+                                {{ user.goal }}
+                            </td>
+
+                            <td>
+                                {{ user.intensity }}
+                            </td>
+
+                            <td>
+                                {{ user.created_at }}
+                            </td>
+
+                            <td>
+
+                                <form
+                                    action="/delete-user/{{ user.user_id }}"
+                                    method="post"
+                                >
+
+                                    <input
+                                        type="hidden"
+                                        name="admin_key"
+                                        value="{{ admin_key }}"
+                                    >
+
+                                    <button
+                                        type="submit"
+                                        class="btn-danger"
+                                    >
+                                        Delete
+                                    </button>
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        {% else %}
+
+        <section class="card">
+
+            <h3>
+                No users found.
+            </h3>
+
+            <p>
+                Users will appear here after they
+                generate a fitness plan.
+            </p>
+
+        </section>
+
+        {% endif %}
+
+
+        <div class="back-button">
+
+            <a
+                href="/"
+                class="btn-secondary"
+            >
+                ← Back to FitBuddy
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </main>
+
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 FitBuddy - AI Fitness Plan Generator
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
